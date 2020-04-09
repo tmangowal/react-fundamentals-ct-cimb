@@ -1,6 +1,37 @@
 import React from "react";
 
 const ProductCard = (props) => {
+  const { productData } = props;
+  const { nama, harga, desc, discount, stock } = productData;
+
+  const renderItem = () => {
+    if (stock) {
+      return (
+        <>
+          <h3>Nama: {nama}</h3>
+          <h4>Harga: Rp. {harga}</h4>
+          {
+            // if ternary
+            discount > 0 ? (
+              <h4>
+                Diskon {discount}% menjadi {harga - harga * (discount / 100)}
+              </h4>
+            ) : null
+
+            // if (discount > 0) {
+            //   return <h4>Diskon DISKON% menjadi HARGA_SETELAH_DISKON</h4>
+            // } else {
+            //   return null
+            // }
+          }
+          <p>Description: {desc}</p>
+        </>
+      );
+    } else {
+      return <h2>Stock kosong!</h2>;
+    }
+  };
+
   return (
     <div
       style={{
@@ -10,14 +41,7 @@ const ProductCard = (props) => {
         borderRadius: "7px",
       }}
     >
-      <h3>Nama: Nama Product</h3>
-      <h4>Harga: Rp.sekian</h4>
-      <p>
-        Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Fugiat dolorum, velit eveniet porro ex illum esse nisi nobis quia
-        nesciunt! Magnam nemo itaque esse dolore accusamus consequuntur hic
-        dolorem quaerat.
-      </p>
+      {renderItem()}
     </div>
   );
 };

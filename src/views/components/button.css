@@ -1,0 +1,26 @@
+.myBtn {
+  padding: 16px 0px;
+  width: 100%;
+  border: 1px solid #4c3db2;
+  text-align: center;
+  font-size: 8px;
+  color: #4c3db2;
+  font-weight: bold;
+  transition: all 250ms ease-in-out;
+}
+
+.myBtn:hover {
+  cursor: pointer;
+  background-color: #4c3db2;
+  color: white;
+  transition: all 250ms ease-in-out;
+}
+
+.disabledBtn {
+  background-color: gray !important;
+  color: white !important;
+}
+
+.disabledBtn:hover {
+  cursor: default;
+}

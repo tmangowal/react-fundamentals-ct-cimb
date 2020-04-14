@@ -14,6 +14,7 @@ import Handmaid from "./assets/images/handmaid.png";
 import Crazy from "./assets/images/crazyRich.png";
 import Brave from "./assets/images/brave.png";
 import Educated from "./assets/images/educated.png";
+import InputScreen from "./views/screens/InputScreen";
 
 function App() {
   // State
@@ -76,7 +77,9 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World!</h1>
-      <div className="d-flex flex-wrap">{renderBooks()}</div>
+      {/* <div className="d-flex flex-wrap">{renderBooks()}</div> */}
+      {/* <CounterScreen /> */}
+      <InputScreen />
     </div>
   );
 }

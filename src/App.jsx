@@ -16,6 +16,7 @@ import Brave from "./assets/images/brave.png";
 import Educated from "./assets/images/educated.png";
 import InputScreen from "./views/screens/InputScreen";
 import AuthScreen from "./views/screens/AuthScreen";
+import LifecycleScreen from "./views/screens/LifecycleScreen";
 
 function App() {
   // State
@@ -63,12 +64,6 @@ function App() {
     },
   ];
 
-  // const renderProduct = () => {
-  //   return arrProducts.map((val) => {
-  //     return <ProductCard productData={val} />;
-  //   });
-  // };
-
   const renderBooks = () => {
     return arrBooks.map((val) => {
       return <ExerciseCard book={val} />;
@@ -80,7 +75,8 @@ function App() {
       <h1>Hello World!</h1>
       {/* <CounterScreen /> */}
       {/* <InputScreen /> */}
-      <AuthScreen />
+      {/* <AuthScreen /> */}
+      <LifecycleScreen />
     </div>
   );
 }

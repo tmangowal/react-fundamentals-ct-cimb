@@ -15,6 +15,7 @@ import Crazy from "./assets/images/crazyRich.png";
 import Brave from "./assets/images/brave.png";
 import Educated from "./assets/images/educated.png";
 import InputScreen from "./views/screens/InputScreen";
+import AuthScreen from "./views/screens/AuthScreen";
 
 function App() {
   // State
@@ -78,7 +79,8 @@ function App() {
     <div className="App">
       <h1>Hello World!</h1>
       {/* <CounterScreen /> */}
-      <InputScreen />
+      {/* <InputScreen /> */}
+      <AuthScreen />
     </div>
   );
 }

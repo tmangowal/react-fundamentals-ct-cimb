@@ -10,7 +10,10 @@ class AuthScreen extends React.Component {
     loginUsername: "",
     loginPassword: "",
     currentUsername: "",
+    activeEditIdx: null,
   };
+
+  asd = () => {};
 
   render() {
     const {
@@ -20,6 +23,7 @@ class AuthScreen extends React.Component {
       isLoggedIn,
       users,
       currentUsername,
+      activeEditIdx,
       loginPassword,
       loginUsername,
     } = this.state;
@@ -79,20 +83,40 @@ class AuthScreen extends React.Component {
 
     const renderUsers = () => {
       return users.map((val, idx) => {
-        return (
-          <tr>
-            <td>{idx + 1}</td>
-            <td>{val.username}</td>
-            <td>
-              <input
-                type="button"
-                value="Delete"
-                className="btn btn-danger"
-                onClick={() => deleteHandler(idx)}
-              />
-            </td>
-          </tr>
-        );
+        if (idx == activeEditIdx) {
+          return (
+            <tr>
+              <td>{idx + 1}</td>
+              {/* <td>{val.username}</td> */}
+              <td>
+                <input type="text" placeholder={val.username} />
+              </td>
+              <td>
+                <input
+                  type="button"
+                  value="Delete"
+                  className="btn btn-danger"
+                  onClick={() => deleteHandler(idx)}
+                />
+              </td>
+            </tr>
+          );
+        } else {
+          return (
+            <tr>
+              <td>{idx + 1}</td>
+              <td>{val.username}</td>
+              <td>
+                <input
+                  type="button"
+                  value="Edit"
+                  className="btn btn-info"
+                  onClick={() => this.setState({ activeEditIdx: idx })}
+                />
+              </td>
+            </tr>
+          );
+        }
       });
     };
 

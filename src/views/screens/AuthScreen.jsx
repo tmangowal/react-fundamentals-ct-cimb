@@ -69,10 +69,37 @@ class AuthScreen extends React.Component {
       }
     };
 
+    const deleteHandler = (idx) => {
+      let temp = [...users];
+
+      temp.splice(idx, 1);
+
+      this.setState({ users: temp });
+    };
+
+    const renderUsers = () => {
+      return users.map((val, idx) => {
+        return (
+          <tr>
+            <td>{idx + 1}</td>
+            <td>{val.username}</td>
+            <td>
+              <input
+                type="button"
+                value="Delete"
+                className="btn btn-danger"
+                onClick={() => deleteHandler(idx)}
+              />
+            </td>
+          </tr>
+        );
+      });
+    };
+
     return (
       <div>
         <h1>Auth Screen</h1>
-        <center>
+        <center className="container">
           <div className="card p-5" style={{ width: "400px" }}>
             <h4>Register</h4>
             <input
@@ -103,6 +130,16 @@ class AuthScreen extends React.Component {
               onClick={registerHandler}
             />
           </div>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Username</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>{renderUsers()}</tbody>
+          </table>
           {/* <div className="card p-5" style={{ width: "400px" }}>
             <h4>Login</h4>
             <input

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NewScreen from "./views/screens/NewScreen";
 import TableProduct from "./views/components/TableProduct";
@@ -17,6 +17,7 @@ import Educated from "./assets/images/educated.png";
 import InputScreen from "./views/screens/InputScreen";
 import AuthScreen from "./views/screens/AuthScreen";
 import LifecycleScreen from "./views/screens/LifecycleScreen";
+import HomeScreen from "./views/screens/HomeScreen";
 
 function App() {
   // State
@@ -71,13 +72,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Hello World!</h1>
-      {/* <CounterScreen /> */}
-      {/* <InputScreen /> */}
-      {/* <AuthScreen /> */}
-      <LifecycleScreen />
-    </div>
+    // <div className="App">
+    //   <h1>Hello World!</h1>
+    //   <CounterScreen />
+    //   <InputScreen />
+    //   <AuthScreen />
+    //   <LifecycleScreen />
+    // </div>
+    <BrowserRouter>
+      {/* <LifecycleScreen /> */}
+      <Switch>
+        <Route exact path="/" component={HomeScreen} />
+        <Route exact path="/auth" component={AuthScreen} />
+        <Route exact path="/input" component={InputScreen} />
+        <Route exact path="/counter" component={CounterScreen} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

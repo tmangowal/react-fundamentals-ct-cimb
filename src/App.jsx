@@ -20,6 +20,7 @@ import AuthScreen from "./views/screens/AuthScreen";
 import LifecycleScreen from "./views/screens/LifecycleScreen";
 import HomeScreen from "./views/screens/HomeScreen";
 import PageNotFound from "./views/screens/PageNotFound";
+import Navbar from "./views/components/Navbar";
 
 function App() {
   // State
@@ -83,6 +84,7 @@ function App() {
     // </div>
     <BrowserRouter>
       {/* <LifecycleScreen /> */}
+      <Navbar />
       <Switch>
         <Route exact path="/" component={HomeScreen} />
         <Route exact path="/auth" component={AuthScreen} />

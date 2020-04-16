@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
@@ -7,9 +8,9 @@ class Navbar extends React.Component {
         className="d-flex justify-content-around align-items-center"
         style={{ height: "80px" }}
       >
-        <a href="">Ini Navbar</a>
-        <a href="">Ini Navbar</a>
-        <a href="">Ini Navbar</a>
+        <Link to="/auth">Register | Login</Link>
+        <Link to="/input">Input Screen</Link>
+        <Link to="/counter">Counter Screen</Link>
       </div>
     );
   }

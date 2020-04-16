@@ -21,6 +21,7 @@ import LifecycleScreen from "./views/screens/LifecycleScreen";
 import HomeScreen from "./views/screens/HomeScreen";
 import PageNotFound from "./views/screens/PageNotFound";
 import Navbar from "./views/components/Navbar";
+import ProfileScreen from "./views/screens/ProfileScreen";
 
 function App() {
   // State
@@ -90,6 +91,7 @@ function App() {
         <Route exact path="/auth" component={AuthScreen} />
         <Route exact path="/input" component={InputScreen} />
         <Route exact path="/counter" component={CounterScreen} />
+        <Route exact path="/profile/:pikachu" component={ProfileScreen} />
         <Route path="*" component={PageNotFound} />
       </Switch>
     </BrowserRouter>

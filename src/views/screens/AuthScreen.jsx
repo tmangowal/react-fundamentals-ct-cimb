@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class AuthScreen extends React.Component {
   state = {
@@ -96,12 +97,9 @@ class AuthScreen extends React.Component {
             <td>{idx + 1}</td>
             <td>{val.username}</td>
             <td>
-              <input
-                type="button"
-                value="Edit"
-                className="btn btn-info"
-                onClick={() => this.setState({ activeEditIdx: idx })}
-              />
+              <Link to={`/profile/${val.username}`}>
+                <input type="button" value="Edit" className="btn btn-info" />
+              </Link>
             </td>
           </tr>
         );
@@ -156,7 +154,7 @@ class AuthScreen extends React.Component {
               onClick={this.registerHandler}
             />
           </div>
-          <table className="table">
+          {/* <table className="table">
             <thead>
               <tr>
                 <th>No</th>
@@ -165,8 +163,8 @@ class AuthScreen extends React.Component {
               </tr>
             </thead>
             <tbody>{this.renderUsers()}</tbody>
-          </table>
-          {/* <div className="card p-5" style={{ width: "400px" }}>
+          </table> */}
+          <div className="card p-5" style={{ width: "400px" }}>
             <h4>Login</h4>
             <input
               value={loginUsername}
@@ -189,7 +187,7 @@ class AuthScreen extends React.Component {
               onClick={this.loginHandler}
             />
           </div>
-          {isLoggedIn ? <h2>Welcome {currentUsername}</h2> : null} */}
+          {isLoggedIn ? <h2>Welcome {currentUsername}</h2> : null}
         </center>
       </div>
     );

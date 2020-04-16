@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class InputScreen extends React.Component {
   state = {
@@ -31,6 +32,9 @@ class InputScreen extends React.Component {
           type="text"
           placeholder="Email"
         />
+        <Link to={"/profile/" + username}>
+          <input type="button" className="btn btn-primary" value="Login" />
+        </Link>
         <br />
         <textarea
           onChange={(e) => this.inputHandler(e, "textbox")}

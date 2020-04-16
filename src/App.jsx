@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 
 import NewScreen from "./views/screens/NewScreen";
 import TableProduct from "./views/components/TableProduct";
@@ -76,15 +76,7 @@ function App() {
   };
 
   return (
-    // <div className="App">
-    //   <h1>Hello World!</h1>
-    //   <CounterScreen />
-    //   <InputScreen />
-    //   <AuthScreen />
-    //   <LifecycleScreen />
-    // </div>
-    <BrowserRouter>
-      {/* <LifecycleScreen /> */}
+    <>
       <Navbar />
       <Switch>
         <Route exact path="/" component={HomeScreen} />
@@ -94,8 +86,8 @@ function App() {
         <Route exact path="/profile/:pikachu" component={ProfileScreen} />
         <Route path="*" component={PageNotFound} />
       </Switch>
-    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default withRouter(App);

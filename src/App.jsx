@@ -14,10 +14,12 @@ import Handmaid from "./assets/images/handmaid.png";
 import Crazy from "./assets/images/crazyRich.png";
 import Brave from "./assets/images/brave.png";
 import Educated from "./assets/images/educated.png";
+
 import InputScreen from "./views/screens/InputScreen";
 import AuthScreen from "./views/screens/AuthScreen";
 import LifecycleScreen from "./views/screens/LifecycleScreen";
 import HomeScreen from "./views/screens/HomeScreen";
+import PageNotFound from "./views/screens/PageNotFound";
 
 function App() {
   // State
@@ -86,6 +88,7 @@ function App() {
         <Route exact path="/auth" component={AuthScreen} />
         <Route exact path="/input" component={InputScreen} />
         <Route exact path="/counter" component={CounterScreen} />
+        <Route path="*" component={PageNotFound} />
       </Switch>
     </BrowserRouter>
   );

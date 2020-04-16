@@ -1,0 +1,11 @@
+{
+  "posts": [],
+  "comments": [],
+  "users": {
+    "id": 1,
+    "username": "pikachu",
+    "password": "password",
+    "role": "user",
+    "fullName": "pikachu chu"
+  }
+}

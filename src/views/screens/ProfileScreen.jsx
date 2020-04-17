@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import { API_URL } from "../../constants/API";
 
 class ProfileScreen extends React.Component {
   state = {
@@ -48,7 +49,30 @@ class ProfileScreen extends React.Component {
     console.log("bukan axios");
   };
 
-  deleteDataHandler = () => {};
+  deleteDataHandler = () => {
+    Axios.delete(`${API_URL}/users/1`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  postDataHandler = () => {
+    Axios.post(`${API_URL}/users`, {
+      username: "steve",
+      password: "123",
+      role: "admin",
+      fullName: "steve jobs",
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
@@ -66,6 +90,12 @@ class ProfileScreen extends React.Component {
           type="button"
           value="Delete data"
           className="btn btn-danger"
+        />
+        <input
+          onClick={this.postDataHandler}
+          type="button"
+          value="Post data"
+          className="btn btn-primary"
         />
       </div>
     );

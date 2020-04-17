@@ -84,6 +84,23 @@ function App() {
         <Route exact path="/input" component={InputScreen} />
         <Route exact path="/counter" component={CounterScreen} />
         <Route exact path="/profile/:pikachu" component={ProfileScreen} />
+        {/* 
+          LOGIN SCREEN
+            - GET user sesuai username dan password yg diberikan
+            - User ada -> Redirect to profile user tersebut
+            - User tidak ada / salah password -> alert "User tidak ditemukan / Password salah"
+
+          REGISTER SCREEN
+            - POST user baru ke db.json
+            - username harus unik (tampilkan alert username sudah terpakai)
+            - data -> username, fullName, password, role
+
+          PROFILE SCREEN
+            - Ketika masuk screen langsung 
+              GET data user melalui route params (isi params bisa username atau ID).
+              Gunakan lifecycle method componentDidMount
+            - Tampilkan username, fullName, dan role user tersebut
+        */}
         <Route path="*" component={PageNotFound} />
       </Switch>
     </>

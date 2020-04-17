@@ -8,6 +8,7 @@ class ProfileScreen extends React.Component {
   };
 
   getDataHandler = () => {
+    // request GET semua data table
     // Axios.get("http://localhost:3001/users")
     //   .then((res) => {
     //     // res = response dari API
@@ -31,6 +32,7 @@ class ProfileScreen extends React.Component {
     //     console.log(err);
     //   });
 
+    // Request GET by condition yg kita berikan
     // Axios.get("http://localhost:3001/users", {
     //   params: {
     //     role: "admin",

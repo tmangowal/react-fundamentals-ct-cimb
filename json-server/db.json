@@ -1,11 +1,20 @@
 {
   "posts": [],
   "comments": [],
-  "users": {
-    "id": 1,
-    "username": "pikachu",
-    "password": "password",
-    "role": "user",
-    "fullName": "pikachu chu"
-  }
+  "users": [
+    {
+      "id": 1,
+      "username": "pikachu",
+      "password": "password",
+      "role": "user",
+      "fullName": "pikachu chu"
+    },
+    {
+      "id": 2,
+      "username": "seto",
+      "password": "password",
+      "role": "user",
+      "fullName": "seto haha"
+    }
+  ]
 }

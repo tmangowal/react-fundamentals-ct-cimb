@@ -50,6 +50,20 @@
       "password": "123",
       "role": "user",
       "id": 8
+    },
+    {
+      "username": "",
+      "fullName": "",
+      "password": "",
+      "role": "user",
+      "id": 9
+    },
+    {
+      "username": "pikachu",
+      "fullName": "pika chu",
+      "password": "123123",
+      "role": "user",
+      "id": 10
     }
   ]
 }

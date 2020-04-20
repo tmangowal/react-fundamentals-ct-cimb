@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { API_URL } from "../../constants/API";
+import { Button, Spinner } from "reactstrap";
 
 class RegisterScreen extends Component {
   state = {
@@ -8,6 +9,7 @@ class RegisterScreen extends Component {
     password: "",
     repPassword: "",
     fullName: "",
+    isLoading: false,
   };
 
   inputHandler = (event, field) => {
@@ -36,31 +38,38 @@ class RegisterScreen extends Component {
       role: "user",
     };
 
-    Axios.get(`${API_URL}/users`, {
-      params: {
-        username,
-      },
-    })
-      .then((res) => {
-        if (res.data.length == 0) {
-          // Username belum terpakai
-          // POST request here
-          Axios.post(`${API_URL}/users`, newUser)
-            .then((res) => {
-              alert("Akun anda telah terdaftar!");
-            })
-            .catch((err) => {
-              alert("Terjadi kesalahan di server, mon map");
-            });
-        } else {
-          // Username sudah terpakai
-          // alert here
-          alert("Username: " + username + " sudah terpakai");
-        }
+    this.setState({ isLoading: true });
+    setTimeout(() => {
+      Axios.get(`${API_URL}/users`, {
+        params: {
+          username,
+        },
       })
-      .catch((err) => {
-        console.log("ERROR", err);
-      });
+        .then((res) => {
+          if (res.data.length == 0) {
+            // Username belum terpakai
+            // POST request here
+            Axios.post(`${API_URL}/users`, newUser)
+              .then((res) => {
+                alert("Akun anda telah terdaftar!");
+                this.setState({ isLoading: false });
+              })
+              .catch((err) => {
+                alert("Terjadi kesalahan di server, mon map");
+                this.setState({ isLoading: false });
+              });
+          } else {
+            // Username sudah terpakai
+            // alert here
+            alert("Username: " + username + " sudah terpakai");
+            this.setState({ isLoading: false });
+          }
+        })
+        .catch((err) => {
+          console.log("ERROR", err);
+          this.setState({ isLoading: false });
+        });
+    }, 1500);
   };
 
   render() {
@@ -97,6 +106,7 @@ class RegisterScreen extends Component {
             value="Register"
             className="btn btn-primary mt-3"
             onClick={this.registerHandler}
+            disabled={this.state.isLoading}
           />
         </div>
       </div>

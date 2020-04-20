@@ -22,6 +22,7 @@ import HomeScreen from "./views/screens/HomeScreen";
 import PageNotFound from "./views/screens/PageNotFound";
 import Navbar from "./views/components/Navbar";
 import ProfileScreen from "./views/screens/ProfileScreen";
+import RegisterScreen from "./views/screens/RegisterScreen";
 
 function App() {
   // State
@@ -84,6 +85,7 @@ function App() {
         <Route exact path="/input" component={InputScreen} />
         <Route exact path="/counter" component={CounterScreen} />
         <Route exact path="/profile/:pikachu" component={ProfileScreen} />
+        <Route exact path="/register" component={RegisterScreen} />
         {/* 
           LOGIN SCREEN
             - GET user sesuai username dan password yg diberikan

@@ -12,7 +12,7 @@ class Navbar extends React.Component {
         <Link to="/auth">Register | Login</Link>
         <Link to="/input">Input Screen</Link>
         <Link to="/counter">Counter Screen</Link>
-        {this.props.todo.todoInput}
+        {this.props.user.username}
       </div>
     );
   }
@@ -20,7 +20,9 @@ class Navbar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    // Field dlm object ini bisa diakses lewat this.props.namaField
     todo: state.haha,
+    user: state.user,
   };
 };
 

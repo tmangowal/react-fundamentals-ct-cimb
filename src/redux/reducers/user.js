@@ -1,6 +1,6 @@
 const init_state = {
-  todoInput: "",
-  todoList: [],
+  id: 0,
+  username: "Doraemon",
 };
 
 export default (state = init_state, action) => {

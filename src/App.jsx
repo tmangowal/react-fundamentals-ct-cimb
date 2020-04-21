@@ -25,6 +25,7 @@ import ProfileScreen from "./views/screens/ProfileScreen";
 import RegisterScreen from "./views/screens/RegisterScreen";
 import LoginScreen from "./views/screens/LoginScreen";
 import ProfileScreenPR from "./views/screens/ProfileScreenPR";
+import TodoReduxScreen from "./views/screens/TodoReduxScreen";
 
 function App() {
   // State
@@ -90,6 +91,7 @@ function App() {
         <Route exact path="/register" component={RegisterScreen} />
         <Route exact path="/login" component={LoginScreen} />
         <Route exact path="/profile/:userId" component={ProfileScreenPR} />
+        <Route exact path="/todo" component={TodoReduxScreen} />
         {/* 
           LOGIN SCREEN
             - GET user sesuai username dan password yg diberikan

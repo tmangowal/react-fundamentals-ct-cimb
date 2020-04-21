@@ -4,3 +4,10 @@ export const todoInputHandler = (text) => {
     payload: text,
   };
 };
+
+export const addTodoHandler = (todoItem) => {
+  return {
+    type: "ADD_TODO",
+    payload: todoItem,
+  };
+};

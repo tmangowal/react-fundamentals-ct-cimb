@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
+import Cookie from "universal-cookie";
 
 import NewScreen from "./views/screens/NewScreen";
 import TableProduct from "./views/components/TableProduct";
@@ -26,6 +27,8 @@ import RegisterScreen from "./views/screens/RegisterScreen";
 import LoginScreen from "./views/screens/LoginScreen";
 import ProfileScreenPR from "./views/screens/ProfileScreenPR";
 import TodoReduxScreen from "./views/screens/TodoReduxScreen";
+
+const cookieObject = new Cookie();
 
 class App extends React.Component {
   // State
@@ -74,7 +77,7 @@ class App extends React.Component {
   ];
 
   renderBooks = () => {
-    return arrBooks.map((val) => {
+    return this.arrBooks.map((val) => {
       return <ExerciseCard book={val} />;
     });
   };

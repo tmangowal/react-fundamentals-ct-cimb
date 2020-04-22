@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import { API_URL } from "../../constants/API";
 import swal from "sweetalert";
+import { loginHandler } from "../../redux/actions";
 
 class LoginScreen extends Component {
   state = {
@@ -20,24 +22,12 @@ class LoginScreen extends Component {
   loginHandler = () => {
     const { username, password } = this.state;
 
-    Axios.get(`${API_URL}/users`, {
-      params: {
-        username,
-        password,
-      },
-    })
-      .then((res) => {
-        // Login sukses
-        if (res.data.length > 0) {
-          swal("Success!", "Berhasil berhasil hore", "success");
-          this.setState({ isLoggedIn: true, loginProfile: res.data[0] });
-        } else {
-          swal("Error!", "Username atau password salah", "error");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const userData = {
+      username,
+      password,
+    };
+
+    this.props.onLogin(userData);
   };
 
   render() {
@@ -46,6 +36,7 @@ class LoginScreen extends Component {
         <div className="container d-flex justify-content-center">
           <div className="card p-5" style={{ width: "400px" }}>
             <h4>Login</h4>
+            <p>username: {this.props.user.username}</p>
             <input
               className="form-control mt-2"
               type="text"
@@ -73,4 +64,14 @@ class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+const mapDispatchToProps = {
+  onLogin: loginHandler,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

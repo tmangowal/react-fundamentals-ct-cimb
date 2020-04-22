@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import ReduxThunk from "redux-thunk";
 import reducers from "./redux/reducers/";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const penampung = createStore(reducers, {});
+const penampung = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 ReactDOM.render(
   <React.StrictMode>

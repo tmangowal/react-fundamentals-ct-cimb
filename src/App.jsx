@@ -16,7 +16,7 @@ import Brave from "./assets/images/brave.png";
 import Educated from "./assets/images/educated.png";
 
 import InputScreen from "./views/screens/InputScreen";
-import AuthScreen from "./views/screens/AuthScreen";
+import LayarAuth from "./views/screens/AuthScreen";
 import LifecycleScreen from "./views/screens/LifecycleScreen";
 import HomeScreen from "./views/screens/HomeScreen";
 import PageNotFound from "./views/screens/PageNotFound";
@@ -27,10 +27,10 @@ import LoginScreen from "./views/screens/LoginScreen";
 import ProfileScreenPR from "./views/screens/ProfileScreenPR";
 import TodoReduxScreen from "./views/screens/TodoReduxScreen";
 
-function App() {
+class App extends React.Component {
   // State
 
-  let arrBooks = [
+  arrBooks = [
     {
       author: "Margaret Atwood",
       title: "The handmaid's tale",
@@ -73,46 +73,50 @@ function App() {
     },
   ];
 
-  const renderBooks = () => {
+  renderBooks = () => {
     return arrBooks.map((val) => {
       return <ExerciseCard book={val} />;
     });
   };
 
-  return (
-    <>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={HomeScreen} />
-        <Route exact path="/auth" component={AuthScreen} />
-        <Route exact path="/input" component={InputScreen} />
-        <Route exact path="/counter" component={CounterScreen} />
-        {/* <Route exact path="/profile/:pikachu" component={ProfileScreen} /> */}
-        <Route exact path="/register" component={RegisterScreen} />
-        <Route exact path="/login" component={LoginScreen} />
-        <Route exact path="/profile/:userId" component={ProfileScreenPR} />
-        <Route exact path="/todo" component={TodoReduxScreen} />
-        {/* 
-          LOGIN SCREEN
-            - GET user sesuai username dan password yg diberikan
-            - User ada -> Redirect to profile user tersebut
-            - User tidak ada / salah password -> alert "User tidak ditemukan / Password salah"
-
-          REGISTER SCREEN
-            - POST user baru ke db.json
-            - username harus unik (tampilkan alert username sudah terpakai)
-            - data -> username, fullName, password, role
-
-          PROFILE SCREEN
-            - Ketika masuk screen langsung 
-              GET data user melalui route params (isi params bisa username atau ID).
-              Gunakan lifecycle method componentDidMount
-            - Tampilkan username, fullName, dan role user tersebut
-        */}
-        <Route path="*" component={PageNotFound} />
-      </Switch>
-    </>
-  );
+  render() {
+    return (
+      <>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={HomeScreen} />
+          <Route exact path="/auth" component={LayarAuth} />
+          <Route exact path="/input" component={InputScreen} />
+          <Route exact path="/counter" component={CounterScreen} />
+          {/* <Route exact path="/profile/:pikachu" component={ProfileScreen} /> */}
+          <Route exact path="/register" component={RegisterScreen} />
+          <Route exact path="/login" component={LoginScreen} />
+          <Route exact path="/profile/:userId" component={ProfileScreenPR} />
+          <Route exact path="/todo" component={TodoReduxScreen} />
+          {/* 
+            PR Axios
+  
+            LOGIN SCREEN
+              - GET user sesuai username dan password yg diberikan
+              - User ada -> Redirect to profile user tersebut
+              - User tidak ada / salah password -> alert "User tidak ditemukan / Password salah"
+  
+            REGISTER SCREEN
+              - POST user baru ke db.json
+              - username harus unik (tampilkan alert username sudah terpakai)
+              - data -> username, fullName, password, role
+  
+            PROFILE SCREEN
+              - Ketika masuk screen langsung 
+                GET data user melalui route params (isi params bisa username atau ID).
+                Gunakan lifecycle method componentDidMount
+              - Tampilkan username, fullName, dan role user tersebut
+          */}
+          <Route path="*" component={PageNotFound} />
+        </Switch>
+      </>
+    );
+  }
 }
 
 export default withRouter(App);

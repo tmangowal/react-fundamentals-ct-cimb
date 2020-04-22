@@ -3,17 +3,8 @@ import React from "react";
 import Handmaid from "../../assets/images/handmaid.png";
 import Button from "./Button";
 
-const ExerciseCard = (props) => {
-  const {
-    author,
-    title,
-    review,
-    desc,
-    price,
-    discount,
-    image,
-    stock,
-  } = props.book;
+const ExerciseCard = ({ book }) => {
+  const { author, title, review, desc, price, discount, image, stock } = book;
   const gray = "#5C6A79";
 
   return (

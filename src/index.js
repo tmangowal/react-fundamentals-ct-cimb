@@ -8,11 +8,11 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(reducers, {});
+const penampung = createStore(reducers, {});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={penampung}>
       <BrowserRouter>
         <App />
       </BrowserRouter>

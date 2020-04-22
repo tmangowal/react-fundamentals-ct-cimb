@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import todo from "./todo";
-import user from "./user";
+import todoReducer from "./todo";
+import userReducer from "./user";
 
 export default combineReducers(
   // Object ini diakses oleh parameter (state) di mapStateToProps
   {
-    haha: todo,
-    user,
+    todo: todoReducer,
+    user: userReducer,
   }
 );

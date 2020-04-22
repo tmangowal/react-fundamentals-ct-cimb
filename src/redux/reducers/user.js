@@ -1,6 +1,8 @@
 const init_state = {
   id: 0,
   username: "Doraemon",
+  fullName: "",
+  role: "",
 };
 
 export default (state = init_state, action) => {

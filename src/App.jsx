@@ -29,6 +29,8 @@ import LoginScreen from "./views/screens/LoginScreen";
 import ProfileScreenPR from "./views/screens/ProfileScreenPR";
 import TodoReduxScreen from "./views/screens/TodoReduxScreen";
 
+import { userKeepLogin } from "./redux/actions";
+
 const cookieObject = new Cookie();
 
 class App extends React.Component {
@@ -83,6 +85,14 @@ class App extends React.Component {
     });
   };
 
+  componentDidMount() {
+    let cookieResult = cookieObject.get("authData");
+    console.log(cookieResult);
+    if (cookieResult) {
+      this.props.userKeepLogin(cookieResult);
+    }
+  }
+
   render() {
     return (
       <>
@@ -131,4 +141,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(withRouter(App));
+const mapDispatchToProps = {
+  userKeepLogin,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

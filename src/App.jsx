@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import Cookie from "universal-cookie";
+import { connect } from "react-redux";
 
 import NewScreen from "./views/screens/NewScreen";
 import TableProduct from "./views/components/TableProduct";
@@ -122,4 +123,12 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App);
+// import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(withRouter(App));

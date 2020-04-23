@@ -1,34 +1,12 @@
 const init_state = {
   id: 0,
-  username: "Doraemon",
+  username: "",
   fullName: "",
   role: "",
   testing: "",
   testing2: "",
   errMsg: "",
 };
-
-// ON_LOGIN_SUCCESS
-// state = {
-//   id: 2,
-//   username: "seto",
-//   fullName: "seto 123",
-//   role: "user",
-//   testing: "",
-//   testing2: "",
-//   errMsg: "",
-// };
-
-// GANTI_ERROR_MSG
-// state = {
-//   id: 2,
-//   username: "seto",
-//   fullName: "seto 123",
-//   role: "user",
-//   testing: "",
-//   testing2: "",
-//   errMsg: "Ini error message",
-// };
 
 export default (state = init_state, action) => {
   if (action.type === "ON_CHANGE_USERNAME") {

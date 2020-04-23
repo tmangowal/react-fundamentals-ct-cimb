@@ -9,7 +9,9 @@ class Navbar extends React.Component {
         className="d-flex justify-content-around align-items-center"
         style={{ height: "80px" }}
       >
-        <Link to="/auth">Register | Login</Link>
+        <span>
+          <Link to="/register">Register</Link> | <Link to="/login">Login</Link>
+        </span>
         <Link to="/input">Input Screen</Link>
         <Link to="/counter">Counter Screen</Link>
         {this.props.user.username}

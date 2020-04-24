@@ -24,6 +24,8 @@ export default (state = init_state, action) => {
     return { ...state, errMsg: action.payload };
   } else if (action.type === "GANTI_ERROR_MSG") {
     return { ...state, errMsg: action.payload };
+  } else if (action.type === "ON_LOGOUT_SUCCESS") {
+    return { ...init_state };
   }
   return { ...state };
 };

@@ -1,5 +1,8 @@
 import Axios from "axios";
 import { API_URL } from "../../constants/API";
+import Cookie from "universal-cookie";
+
+const cookieObj = new Cookie();
 
 export const usernameInputHandler = (text) => {
   return {
@@ -66,7 +69,6 @@ export const userKeepLogin = (userData) => {
             // }
           });
         } else {
-          alert("masuk");
           dispatch({
             type: "ON_LOGIN_FAIL",
             payload: "Username atau password salah",
@@ -76,5 +78,12 @@ export const userKeepLogin = (userData) => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+export const logoutHandler = () => {
+  cookieObj.remove("authData");
+  return {
+    type: "ON_LOGOUT_SUCCESS",
   };
 };

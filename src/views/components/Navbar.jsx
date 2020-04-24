@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { logoutHandler } from "../../redux/actions";
 
 class Navbar extends React.Component {
   render() {
@@ -14,7 +15,12 @@ class Navbar extends React.Component {
         </span>
         <Link to="/input">Input Screen</Link>
         <Link to="/counter">Counter Screen</Link>
-        {this.props.user.username}
+        <span>{this.props.user.username}</span>
+        {this.props.user.username ? (
+          <a onClick={this.props.onLogout} href="#">
+            Logout
+          </a>
+        ) : null}
       </div>
     );
   }
@@ -28,4 +34,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = {
+  onLogout: logoutHandler,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
